@@ -1,10 +1,10 @@
 # EOS-Claim-Bot
 claim rewards bot + Telegram and log report
 
-1. Edit config.json with your data and telegram IDs (how to create bot and get ID check below)  
+1. Copy config.json.default to config.json and edit with your data (how to create bot and get chat ID check below)  
 2. Edit cleos.sh  
-3. Edit claim_reward.sh with your wallet password (wqallet should have producer key imported)
-4. Compile and obfuscate claim_reward.sh =>  claim_reward using shc (If you dont have you need to install it somevere https://github.com/neurobin/shc)  
+3. Edit claim_reward.sh with your wallet password (wallet should have producer key imported)
+4. Compile and obfuscate claim_reward.sh to claim_reward using shc (If you dont have you need to install it somevere https://github.com/neurobin/shc)  
     ```
     shc -U -f claim_reward.sh -o claim_reward
     ```
