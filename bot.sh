@@ -44,7 +44,7 @@ claim_reward(){
     echo $ERR >> log.txt
     echo "-------------------------" >> log.txt
 
-    if [[ "$ERR" == *"Error"* && "CLAIM" == "" ]]; then
+    if [[ "$ERR" == *"Error"* && "$CLAIM" == "" ]]; then
 	#claim error
 	sendmessage "Error on claim. Will try again in 2 min..."
 	sleep 120
