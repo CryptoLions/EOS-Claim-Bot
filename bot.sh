@@ -23,10 +23,9 @@ TELEGRAM_API="https://api.telegram.org/bot";
 TELEGRAM_SEND_MSG=$TELEGRAM_API$TELEGRAM_BOT_ID"/sendMessage";
 
 getLastClaim(){
-    LAST_CLAIM_TIME=$(./cleos.sh system listproducers -l 100 -j | jq '.rows[] | select(.owner == "'$BP_NAME'") | .last_claim_time')   #'
-    LAST_CLAIM_TIME=${LAST_CLAIM_TIME//\"/}
-
-    LAST_CLAIM_TIME=${LAST_CLAIM_TIME:0:$((${#LAST_CLAIM_TIME}-6))}
+    LAST_CLAIM_TIME=$(./cleos.sh system listproducers -l 100 -j | jq -r '.rows[] | select(.owner == "'$BP_NAME'") | .last_claim_time')   #'
+    
+    LAST_CLAIM_TIME=$(date -d $LAST_CLAIM_TIME +"%s")
     return $LAST_CLAIM_TIME
 }
 
